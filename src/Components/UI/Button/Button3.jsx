@@ -12,7 +12,7 @@ export const Button3 = () => {
 
       <div className={classes.btn_wrapper}>
 
-         <NavLink to="/step2">
+         <NavLink to="/ultimate_form/step2/">
             <button onClick={() => showPrevPage(state.currentPage)}
                disabled={state.currentPage === 1 ? true : false}
             >PREV</button></NavLink>

@@ -40,7 +40,7 @@ export const Step3 = () => {
                </div>
             </div>
             <Button3 />
-            <NavLink to="/"><button onClick={() =>finishJob() }>Finish the Job</button></NavLink>
+            <NavLink to="/ultimate_form/"><button onClick={() =>finishJob() }>Finish the Job</button></NavLink>
          </div>
       </FormWrapper>
    )

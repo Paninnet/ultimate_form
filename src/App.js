@@ -15,10 +15,9 @@ function App() {
         <Header />
         <Switch>
           <DataState>
-            <Route exact path='/' component={Step1}></Route>
-            <Route path='/step2' component={Step2}></Route>
-            <Route path='/step3' component={Step3}></Route>
-            <Route path='/result' component={Result}></Route>
+            <Route exact path='/ultimate_form/' component={Step1}></Route>
+            <Route path='/ultimate_form/step2/' component={Step2}></Route>
+            <Route path='/ultimate_form/step3/' component={Step3}></Route>
           </DataState>
         </Switch>
       </BrowserRouter>
