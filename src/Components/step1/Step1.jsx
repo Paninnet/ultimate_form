@@ -20,7 +20,7 @@ export const Step1 = () => {
       <FormWrapper>
          <div  >Step {state.currentPage}</div>
          <Input />
-         <Button/>
+         <Button />
       </FormWrapper>
    )
 }

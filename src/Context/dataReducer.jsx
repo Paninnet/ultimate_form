@@ -3,6 +3,9 @@ export const NEXT_PAGE = 'NEXT_PAGE'
 export const PREV_PAGE = 'PREV_PAGE'
 export const ON_FIRST_NAME_CHANGE = 'ON_FIRST_NAME_CHANGE'
 export const ON_LAST_NAME_CHANGE = 'ON_LAST_NAME_CHANGE'
+export const ON_EMAIL_CHANGE = 'ON_EMAIL_CHANGE'
+export const HAS_PHONE = 'HAS_PHONE'
+export const ON_PHONE_CHANGE = 'ON_PHONE_CHANGE'
 
 
 export const dataReducer =(state,action) => {
@@ -19,6 +22,13 @@ export const dataReducer =(state,action) => {
          return{...state, firtsName:action.name,wrongName:action.wrongName }
       case ON_LAST_NAME_CHANGE:
          return{...state, lastName:action.lastName,wrongLastName:action.wrongLastName}
+
+      case ON_EMAIL_CHANGE:
+         return{...state, email:action.email, wrongEmail:action.wrongEmail}
+      case HAS_PHONE:
+         return{...state,hasPhone:action.phone,phoneNumber:action.phoneNumber,wrongPhone:action.wrongPhone}
+      case ON_PHONE_CHANGE:
+         return{...state,phoneNumber:action.phoneNumber, wrongPhone:action.wrongPhone}
    
       default:
          return{...state}

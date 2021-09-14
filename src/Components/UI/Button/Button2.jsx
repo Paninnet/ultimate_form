@@ -1,12 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { dataContext } from '../../../Context/dataContext'
 import classes from './Button.module.css'
 
-export const Button = () => {
+export const Button2 = () => {
       const { state, showPrevPage, showNextPage } = useContext(dataContext)
 
+
+debugger
       return (
+         
             <div className={classes.btn_wrapper}>
             
                   <NavLink to="/">
@@ -15,7 +18,7 @@ export const Button = () => {
                               >PREV</button></NavLink>
                   <NavLink to="/step2">
                         <button onClick={() => showNextPage(+state.currentPage)}
-                              disabled={state.wrongName ===true || state.wrongLastName ===true ? true : false}
+                              disabled={((state.wrongEmail === true && state.hasPhone === false ) || (state.wrongPhone === true  && state.hasPhone === true && state.wrongEmail === false))   ? true : false}
                         >NEXT</button></NavLink>
 
             </div>
@@ -23,5 +26,3 @@ export const Button = () => {
 
       )
 }
-
-
