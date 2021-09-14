@@ -16,7 +16,7 @@ debugger
                         <button onClick={() => showPrevPage(state.currentPage)}
                               disabled={state.currentPage === 1 ? true : false}
                               >PREV</button></NavLink>
-                  <NavLink to="/step2">
+                  <NavLink to="/step3">
                         <button onClick={() => showNextPage(+state.currentPage)}
                               disabled={((state.wrongEmail === true && state.hasPhone === false ) || (state.wrongPhone === true  && state.hasPhone === true && state.wrongEmail === false))   ? true : false}
                         >NEXT</button></NavLink>

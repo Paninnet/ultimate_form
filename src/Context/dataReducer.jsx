@@ -6,6 +6,7 @@ export const ON_LAST_NAME_CHANGE = 'ON_LAST_NAME_CHANGE'
 export const ON_EMAIL_CHANGE = 'ON_EMAIL_CHANGE'
 export const HAS_PHONE = 'HAS_PHONE'
 export const ON_PHONE_CHANGE = 'ON_PHONE_CHANGE'
+export const FINISH_JOB = 'FINISH_JOB'
 
 
 export const dataReducer =(state,action) => {
@@ -29,8 +30,14 @@ export const dataReducer =(state,action) => {
          return{...state,hasPhone:action.phone,phoneNumber:action.phoneNumber,wrongPhone:action.wrongPhone}
       case ON_PHONE_CHANGE:
          return{...state,phoneNumber:action.phoneNumber, wrongPhone:action.wrongPhone}
+
+      case FINISH_JOB:
+         return{...state, currentPage:action.currentPage, firtsName:action.firtsName,lastName:action.lastName, email:action.email,hasPhone:action.hasPhone,
+         phoneNumber:action.phoneNumber, wrongName: action.wrongName, wrongLastName: action.wrongLastName, wrongEmail:action.wrongEmail, wrongPhone:action.wrongPhone
+         }
    
       default:
          return{...state}
    }
 }
+

@@ -1,11 +1,12 @@
 import { useReducer } from "react"
+import Swal from "sweetalert2"
 import { dataContext } from "./dataContext"
-import { CURRENT_PAGE, dataReducer, HAS_PHONE, NEXT_PAGE, ON_EMAIL_CHANGE, ON_FIRST_NAME_CHANGE, ON_LAST_NAME_CHANGE, ON_PHONE_CHANGE, PREV_PAGE } from "./dataReducer"
+import { CURRENT_PAGE, dataReducer, FINISH_JOB, HAS_PHONE, NEXT_PAGE, ON_EMAIL_CHANGE, ON_FIRST_NAME_CHANGE, ON_LAST_NAME_CHANGE, ON_PHONE_CHANGE, PREV_PAGE } from "./dataReducer"
 
 export const DataState = ({ children }) => {
    const initialState = {
       currentPage: 1,
-      totalPage: 4,
+      totalPage: 3,
 
       firtsName: "",
       lastName: "",
@@ -61,21 +62,30 @@ export const DataState = ({ children }) => {
    }
 
    const changeHasPhone = (phone) => {
-      dispacth({ type: HAS_PHONE, phone,phoneNumber: "",wrongPhone:true })
+      dispacth({ type: HAS_PHONE, phone, phoneNumber: "", wrongPhone: true })
    }
 
    const changePhoneNumber = (phoneNumber) => {
-      if(/^\d[\d\(\)\ -]{4,14}\d$/.test(phoneNumber) && phoneNumber.trim())
-         dispacth({ type: ON_PHONE_CHANGE, phoneNumber,wrongPhone:false })
-      else{
-         dispacth({ type: ON_PHONE_CHANGE, phoneNumber,wrongPhone:true })
+      if (/^\d[\d\(\)\ -]{4,14}\d$/.test(phoneNumber) && phoneNumber.trim())
+         dispacth({ type: ON_PHONE_CHANGE, phoneNumber, wrongPhone: false })
+      else {
+         dispacth({ type: ON_PHONE_CHANGE, phoneNumber, wrongPhone: true })
       }
 
    }
 
+   const finishJob = (firtsName ="", currentPage = 1, lastName="", email="", hasPhone=false, phoneNumber="",
+      wrongName = true,
+      wrongLastName = true,
+      wrongEmail = true,
+      wrongPhone = true) => {
+         Swal.fire("Great Job","Nice",'success')
+      dispacth({ type: FINISH_JOB,firtsName,currentPage,lastName,email,hasPhone,phoneNumber,wrongEmail,wrongName, wrongLastName,wrongPhone })
+   }
+
 
    return (
-      <dataContext.Provider value={{ state, showNextPage, showCurrentPage, showPrevPage, changeFirstName, changeLastName, changeEmail, changeHasPhone, changePhoneNumber }}>
+      <dataContext.Provider value={{ state, showNextPage, showCurrentPage, showPrevPage, changeFirstName, changeLastName, changeEmail, changeHasPhone, changePhoneNumber,finishJob }}>
          {children}
       </dataContext.Provider>
    )
